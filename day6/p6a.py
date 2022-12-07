@@ -4,7 +4,7 @@ text = f.read()
 f.close()
 
 # loop through text creating slices of the marker length
-def find_marker(text, num):
+def find_marker(text:str, num:int):
     for i in range(0,(len(text)-num)):
         # *sub creates a list - trimming repeated elements
         sub = [*set(text[i:(i+num)])]
