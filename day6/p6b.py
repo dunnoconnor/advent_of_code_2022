@@ -7,7 +7,7 @@ f.close()
 def find_marker(text:str, num:int):
     for i in range(0,(len(text)-num)):
         # *sub creates a list - trimming repeated elements
-        sub = [*set(text[i:(i+num)])]
+        sub = set(text[i:(i+num)])
         # if no repeats are trimmed, return the end of this slice
         if(len(sub)==num):
             return (i+num)
