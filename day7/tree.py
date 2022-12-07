@@ -8,7 +8,7 @@ class Tree:
         self.folder_sizes = self.get_folder_sizes()
 
     # Create tree structure of folders
-    def build_folders(self, lines:list[str]):
+    def build_folders(self, lines:list[str]) -> list[Node]:
         folders = []
         for line in lines:
             if line[0:4] == "$ cd":
@@ -27,27 +27,27 @@ class Tree:
         # return list of all folders [Node]
         return folders
     
-    # return list of all folder sizes [int]
-    def get_folder_sizes(self):
+    # return list of all folder sizes
+    def get_folder_sizes(self) -> list[int]:
         sizes = []
         for f in self.folders:
             sizes.append(f.data)
         sizes.sort()
         return sizes
     
-    # return sum (int) of all foler sizes smaller than a given value
-    def sum_below_value(self,value:int):
+    # return sum of all folder sizes smaller than a given value
+    def sum_below_value(self,value:int) -> int:
         sum = 0
         for s in self.folder_sizes:
             if s<=value:
                 sum  += s
         return sum
     
-    # return size (int) of the smallest folder at least as large as the disk space to be cleared
-    def clear_space(self, disk:int, req:int):
+    # return size of the smallest folder at least as large as the disk space to be cleared
+    def clear_space(self, disk:int, req:int) -> int:
         free = disk - self.folder_sizes[-1]
         min_size = req - free
-    
+        # loop through ordered sizes, returning the first element large enough
         for size in self.folder_sizes:
-            if size>= min_size:
+            if size >= min_size:
                 return size

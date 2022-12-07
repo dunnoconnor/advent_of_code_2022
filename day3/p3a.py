@@ -5,7 +5,7 @@ f.close()
 sacks = text.split("\n")
 
 # find the matching chars
-def findMatches(list):
+def findMatches(list:list[str]) -> str:
     m = ""
     for string in list:
         # split each string and covert to set
@@ -18,7 +18,7 @@ def findMatches(list):
     return m
 
 # sum values of chars in string
-def sumString(string):
+def sumString(string:str) -> int:
     sum = 0
     # for uppercase/lowercase, offset from unicode value
     for c in string:
