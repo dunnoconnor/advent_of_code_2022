@@ -8,4 +8,4 @@ def solve_a(filename:str="data") -> int:
     c.run_clock(text)
     print(sum(c.signals))
 
-solve_a("sample")
+solve_a()
