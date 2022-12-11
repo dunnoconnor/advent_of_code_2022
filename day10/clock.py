@@ -1,5 +1,5 @@
 class Clock:
-    # Clock class stores name, x pos, y pos
+
     def __init__(self, width:int, height:int):
         self.width = width
         self.height = height
@@ -42,6 +42,5 @@ class Clock:
         self.cycles += 1
         if (self.cycles == self.checkpoint):
             self.signal += (self.cycles*self.x)
-            print(f'During the {self.checkpoint}th cycle, register X has the value {self.x}, so the signal strength is {self.checkpoint} * {self.x} = {self.signal}.')
             self.checkpoint += 40
         self.x += v
